@@ -39,4 +39,4 @@ def register(request):
 
 def recommendations(request):
     user = request.session['user']
-    os.system(f'python ../../src/filtrado_colaborativo.py -u {user}')
+    os.system(f'python /home/estudiante/src/filtrado_colaborativo.py -u {user}')
