@@ -21,6 +21,7 @@ def login(request):
 def register(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
+        print('Storing user')
         user = User()
         user.user = form['user'].data
         user.password = form['password']
