@@ -28,11 +28,7 @@ def register(request):
     if form.is_valid():
         user = User()
         user.user = form['user'].data
-        user.password = form['password']
-
-        print("saving")
-        print(user.user)
-        print(user.password)
+        user.password = form['password'].data
 
         User.save(user)
         request.session['user'] = user.user
