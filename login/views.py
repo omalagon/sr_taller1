@@ -9,6 +9,8 @@ def login(request):
         password = form['password'].data
         print("Validando usuario")
         result = User.objects.filter(user=user, password=password)
+
+        print(result)
         if result and len(result) == 1:
             request.session['user'] = user
             return redirect('recommendations')
