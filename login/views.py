@@ -39,4 +39,5 @@ def register(request):
 def recommendations(request):
     user = request.session['user']
     recommendations_result = Recommends.objects.filter(user=user)
+    print(recommendations_result)
     return render(request, 'login/recommendations.html', context={'recommendations_result': recommendations_result})
