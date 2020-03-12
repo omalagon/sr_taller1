@@ -25,7 +25,7 @@ SECRET_KEY = 'g$-lczaj+m_!=_xcw@1*y-7h4c(tfl&v7eb%^8t!%)gva25@iu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['172.24.100.60']
 
 
 # Application definition
@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'taller1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
