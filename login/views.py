@@ -8,9 +8,11 @@ def login(request):
         user = form['user'].data
         password = form['password'].data
         print("Validando usuario")
+        print(user)
+        print(password)
+
         result = User.objects.filter(user=user, password=password)
 
-        print(result)
         if result and len(result) == 1:
             request.session['user'] = user
             return redirect('recommendations')
@@ -27,6 +29,10 @@ def register(request):
         user = User()
         user.user = form['user'].data
         user.password = form['password']
+
+        print("saving")
+        print(user.user)
+        print(user.password)
 
         User.save(user)
         request.session['user'] = user.user
