@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .models import User, UserForm
 import os
 
@@ -40,3 +40,6 @@ def register(request):
 def recommendations(request):
     user = request.session['user']
     os.system(f'python /home/estudiante/src/filtrado_colaborativo.py -u {user}')
+    os.system(f'python /home/estudiante/src/cf_jaccard.py -u {user}')
+
+    return HttpResponse("Ejecutando scripts")
