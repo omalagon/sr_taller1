@@ -38,6 +38,8 @@ def register(request):
 
 
 def recommendations(request):
+    user = request.session['user']
+
     return render(request, 'login/recommendations.html')
     # user = request.session['user']
     # print(user)
