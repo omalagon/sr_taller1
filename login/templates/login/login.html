@@ -1,0 +1,10 @@
+<h1>Log in</h1>
+
+{%  block content %}
+    <p>Si el usuario no existe, se redirige a la página de registro</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Ingresar' >
+    </form>
+{% endblock %}
