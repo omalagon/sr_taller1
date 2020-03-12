@@ -7,20 +7,20 @@ def login(request):
     if form.is_valid():
         user = form['user'].data
         password = form['password'].data
-
+        print("Validando usuario")
         result = User.objects.filter(user=user, password=password)
         if result and len(result) == 1:
             request.session['user'] = user
             return redirect('recommendations')
         else:
-            return redirect('login/create.html', context={'form': form})
+            return render(request, 'login/create.html', context={'form': form})
     else:
         return render(request, "login/login.html", context={'form': form})
 
 
 def register(request):
+    print("Creando usuario")
     form = UserForm(request.POST or None)
-
     if form.is_valid():
         user = User()
         user.user = form['user'].data
@@ -30,7 +30,7 @@ def register(request):
         request.session['user'] = user.user
         return redirect('recommendations')
     else:
-        return redirect('login/create.html', context={'form': form})
+        return render(request, 'login/create.html', context={'form': form})
 
 
 def recommendations(request):
