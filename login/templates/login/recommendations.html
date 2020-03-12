@@ -1,43 +1,9 @@
 {%  block content %}
 <h1>Recommendations for user {{ userid }}</h1>
 
-    <h2>-----User-user-----</h2>
-
-    <h3>Jaccard</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in jaccard_u %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
+    <h4>Recommendation, Original Estimation, Prediction</h4>
+    {% for r in recommendations_result %}
+        <p> - {{ r.item }}, {{ r.r_ui }}, {{ r.r_est }}</p>
     {% endfor %}
 
-    <h3>Cosine</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in cosine_u %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
-    {% endfor %}
-
-    <h3>Pearson</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in pearson_u %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
-    {% endfor %}
-
-    <h2>-----Item-item-----</h2>
-
-    <h3>Jaccard</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in jaccard_t %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
-    {% endfor %}
-
-    <h3>Cosine</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in cosine_t %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
-    {% endfor %}
-
-    <h3>Pearson</h3>
-    <h4>Recommendation, Rating</h4>
-    {% for r in pearson_t %}
-        <p> - {{ r.recommendation }}, {{ r.rating }}</p>
-    {% endfor %}
 {% endblock %}

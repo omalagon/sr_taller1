@@ -27,6 +27,17 @@ class UserRating(models.Model):
         managed = False
         db_table = 'user_rating'
 
+
+class Recommends(models.Model):
+    user = models.CharField(max_length=255, blank=True, null=True)
+    item = models.CharField(max_length=255, blank=True, null=True)
+    r_ui = models.CharField(max_length=255, blank=True, null=True)
+    est = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recommends'
+
 # Forms
 class UserForm(ModelForm):
     class Meta:

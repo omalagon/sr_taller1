@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import User, UserForm
-import os
+from .models import User, Recommends, UserForm
 
 def login(request):
     form = UserForm(request.POST or None)
@@ -39,7 +38,5 @@ def register(request):
 
 def recommendations(request):
     user = request.session['user']
-    os.system(f'python /home/estudiante/src/filtrado_colaborativo.py -u {user}')
-    os.system(f'python /home/estudiante/src/cf_jaccard.py -u {user}')
-
-    return HttpResponse("Ejecutando scripts")
+    recommendations_result = Recommends.objects.filter(user=user)
+    return render(request, 'login/recommendations.html', context={'recommendations_result': recommendations_result})
