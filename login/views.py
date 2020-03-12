@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from .models import User, UserForm
-
+from .contentmodels import filtrado_colaborativo
 
 def login(request):
     form = UserForm(request.POST or None)
@@ -39,5 +39,7 @@ def register(request):
 
 def recommendations(request):
     user = request.session['user']
+    model = filtrado_colaborativo.model(True,'cosine','user-user')
 
+    print(model)
     return render(request, 'login/recommendations.html')
