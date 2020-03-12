@@ -13,7 +13,7 @@ def login(request):
             request.session['user'] = user
             return redirect('recommendations')
         else:
-            return render(request, 'login/create.html', context={'form': form})
+            return redirect('register')
     else:
         return render(request, "login/login.html", context={'form': form})
 
@@ -21,7 +21,6 @@ def login(request):
 def register(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
-        print('Storing user')
         user = User()
         user.user = form['user'].data
         user.password = form['password']
@@ -30,8 +29,7 @@ def register(request):
         request.session['user'] = user.user
         return redirect('recommendations')
     else:
-        return render(request, 'login/create.html', context={'form': form})
-
+        return redirect('register')
 
 def recommendations(request):
     return render(request, 'login/recommendations.html')
