@@ -13,7 +13,7 @@ def login(request):
             request.session['user'] = user
             return redirect('recommendations')
         else:
-            return render(request, 'login/create.html', context={'form': form})
+            return render(request, "login/login.html", context={'form': form})
     else:
         return render(request, "login/login.html", context={'form': form})
 
