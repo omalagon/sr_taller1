@@ -41,26 +41,3 @@ def recommendations(request):
     user = request.session['user']
 
     return render(request, 'login/recommendations.html')
-    # user = request.session['user']
-    # print(user)
-    # recommendations_result = Recommendations.objects.filter(user=user).order_by('-rating')
-    #
-    # jaccard_u = recommendations_result.filter(recommendationType='jaccard').filter(model='u')
-    # cosine_u = recommendations_result.filter(recommendationType='cosine').filter(model='u')
-    # pearson_u = recommendations_result.filter(recommendationType='pearson').filter(model='u')
-    #
-    # jaccard_t = recommendations_result.filter(recommendationType='jaccard').filter(model='t')
-    # cosine_t = recommendations_result.filter(recommendationType='cosine').filter(model='t')
-    # pearson_t = recommendations_result.filter(recommendationType='pearson').filter(model='t')
-    #
-    # return render(request, "login/recommendations.html", context=
-    #     {
-    #         'user': user,
-    #         'jaccard_u': jaccard_u,
-    #         'cosine_u': cosine_u,
-    #         'pearson_u': pearson_u,
-    #         'jaccard_t': jaccard_t,
-    #         'cosine_t': cosine_t,
-    #         'pearson_t': pearson_t,
-    #      }
-    #               )
