@@ -21,6 +21,7 @@ def login(request):
 def register(request):
     form = UserForm(request.POST or None)
     print(form.errors)
+    print(form.is_valid())
     if form.is_valid():
         user = User()
         user.user = form['user'].data
